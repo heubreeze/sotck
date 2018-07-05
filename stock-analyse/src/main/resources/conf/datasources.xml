@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+
+	<!-- mysql数据库连接 start -->
+	<bean id="dsWrite" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/stock_analyse?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true" />
+		<property name="username" value="root" />
+		<property name="password" value="Aa123456" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="initialSize" value="5" />
+		<property name="minIdle" value="5" />
+		<property name="maxIdle" value="15" />
+		<property name="maxActive" value="400" />
+		<property name="maxWait" value="2000" />
+		<property name="testOnBorrow" value="true" />
+		<property name="validationQuery" value="/* ping */ select 1" />
+		<property name="validationInterval" value="30000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+	</bean>
+	<!-- mysql数据库连接 end -->
+	
+</beans>

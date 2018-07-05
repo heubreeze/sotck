@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tools>
+	<toolbox scope="application">
+		<tool class="com.jiuchacha.utils.VelocityUtil" key="utils" />
+	</toolbox>
+	<data type="String" key="domain" value="${pom.cookie-domain}" />
+	<data type="String" key="jiuchachaHostAndPort" value="${pom.uri-host-and-port}" />
+</tools>

@@ -1,0 +1,9 @@
+/target/
+/src/test/java
+/src/test/resoources
+
+.classpath
+.project
+.settings/
+.DS_Store
+.svn

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- Log4j 把日志进行分级分开来打以后方便进行日志排除错误 -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- ===== [屏幕Appender] ===== -->
+	<appender name="console-log" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss SSS\} %-5p] %m%n" />
+		</layout>
+	</appender>
+	<appender name="file-log" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${pom.log.dir}gyp_cloud_web.log" />
+		<param name="append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{MM-dd HH:mm:ss SSS} %-5p] %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.hhm" additivity="false">
+		<level value="${pom.log.gyp-level}"></level>
+		<appender-ref ref="console-log" />
+	</logger>
+
+	<logger name="java.sql" additivity="false">
+		<level value="DEBUG"></level>
+		<appender-ref ref="console-log" />
+	</logger>
+
+	<root>
+		<level value="${pom.log.root-level}" />
+		<appender-ref ref="console-log" />
+	</root>
+</log4j:configuration>
